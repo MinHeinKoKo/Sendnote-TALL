@@ -10,7 +10,7 @@ class Note extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $fillable = ['title', 'user_id','body','send_date','is_published'];
+    protected $fillable = ['title', 'user_id','body','send_date','is_published', 'recipient'];
 
     protected $guarded = [
         'id',
