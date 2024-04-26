@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-                \App\Models\User::factory()->create([
+        \App\Models\User::factory()->create([
             'name' => 'Min Hein',
             'email' => 'admin@gmail.com',
             'email_verified_at' => now(),
@@ -22,7 +22,9 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
         \App\Models\User::factory(10)->create();
+        // \App\Models\Note::factory(250)->create();
 
+        $this->call(NoteSeeder::class);
 
     }
 }
