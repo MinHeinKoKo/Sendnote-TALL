@@ -24,5 +24,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(10)->create();
         // \App\Models\Note::factory(250)->create();
 
+        $this->call(NoteSeeder::class);
+
     }
 }

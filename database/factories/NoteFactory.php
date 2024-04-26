@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Note>
@@ -17,12 +18,14 @@ class NoteFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => fake()->numberBetween(1,11),
-            'title' => fake()->sentence(),
-            'body' => fake()->text(),
-            'send_date' => fake()->date(),
+            'id' => $this->faker->uuid,
+            'user_id' => User::factory(),
+            'title' => $this->faker->words(5, true),
+            'body' => $this->faker->paragraph,
+            'recipient' => $this->faker->email,
+            'send_date' => $this->faker->date('Y-m-d', '+30 days'),
             'is_published' => true,
-            'heart_count' => fake()->randomNumber(3, false)
+            'heart_count' => $this->faker->numberBetween(0, 20),
         ];
     }
 }
