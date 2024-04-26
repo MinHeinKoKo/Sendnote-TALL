@@ -11,7 +11,7 @@
             <div class="p-6 text-gray-900 dark:text-gray-100">
                 {{-- {{ __("You're logged in!") }} --}}
                 {{-- <x-button primary>Hi there, This is Notes page</x-button> --}}
-                <livewire:notes.show-notes />
+                <livewire:notes.show-notes lazy />
             </div>
         </div>
     </div>
